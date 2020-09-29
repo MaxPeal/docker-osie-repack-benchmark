@@ -7,7 +7,9 @@ RUN curl -LR https://tinkerbell-oss.s3.amazonaws.com/osie-uploads/latest.tar.gz 
 RUN pwd && ls -la $pwd && ls -la /build
 RUN grep -E "model name|bogomips" /proc/cpuinfo | sort -u
 RUN grep processor /proc/cpuinfo | wc -l
-RUN time pv latest-org.tar.gz | pigz -k -d -v > latest.tar
+#RUN time pv latest-org.tar.gz | pigz -k -d -v > latest.tar
+RUN ls -lah latest*.tar* && sha1sum latest*.tar*
+RUN gunzip -d -v latest-org.tar.gz && mv latest-org.tar.gz latest.tar && ls -lah latest*.tar* && sha1sum latest*.tar*
 RUN zstd -V && zstd -b3 -e9 latest.tar
 RUN zstd -V && zstd -b10 -e19 latest.tar
 RUN zstd -V && zstd -b20 -e21 latest.tar
