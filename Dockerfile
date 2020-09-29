@@ -14,29 +14,31 @@ RUN gunzip -d -v latest-org.tar.gz && mv latest-org.tar latest.tar && ls -lah la
 #RUN zstd -V && zstd -b10 -e19 latest.tar
 #RUN zstd -V && zstd -b20 -e21 latest.tar
 RUN zstd -V
-RUN zstd -b3 latest.tar
-RUN zstd -b4 latest.tar
-RUN zstd -b5 latest.tar
-RUN zstd -b6 latest.tar
-RUN zstd -b7 latest.tar
-RUN zstd -b8 latest.tar
-RUN zstd -b9 latest.tar
-RUN zstd -b10 latest.tar
-RUN zstd -b11 latest.tar
-RUN zstd -b12 latest.tar
-RUN zstd -b13 latest.tar
-RUN zstd -b14 latest.tar
-RUN zstd -b15 latest.tar
-RUN zstd -b16 latest.tar
-RUN zstd -b17 latest.tar
-RUN zstd -b18 latest.tar
-RUN zstd -b19 latest.tar
-RUN zstd -b20 latest.tar
-RUN zstd -b21 latest.tar
-#RUN time pv latest.tar | pigz -k -6 -v > latest-6.tar.gz
-#RUN time pv latest.tar | pigz -k -9 -v > latest-9.tar.gz
-#RUN time pv latest.tar | pigz -k -11 -v > latest-11.tar.gz
-#RUN time pv latest.tar | pixz -k -6 > latest-6.tar.xz
-#RUN time pv latest.tar | pixz -k -9 -e  > latest9-e.tar.xz
+RUN time zstd -3 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -4 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -5 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -6 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -7 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -8 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -9 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -10 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -11 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -12 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -13 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -14 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -15 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -16 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -17 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -18 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -19 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -20 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -21 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+RUN time zstd -22 -T0 -v -k latest.tar && zstd -l latest.tar.zst && ls -lah *.zst && rm latest.tar.zst
+
+RUN time pv latest.tar | pigz -k -6 -v > latest-6.tar.gz
+RUN time pv latest.tar | pigz -k -9 -v > latest-9.tar.gz
+RUN time pv latest.tar | pigz -k -11 -v > latest-11.tar.gz
+RUN time pv latest.tar | pixz -k -6 > latest-6.tar.xz
+RUN time pv latest.tar | pixz -k -9 -e  > latest9-e.tar.xz
 RUN ls -lah latest*.tar*
 RUN ls -la latest*.tar*
