@@ -1,5 +1,6 @@
 FROM debian:testing-slim
 RUN apt update && apt install -y time pv pixz pigz zstd xz-utils inetutils-traceroute speedtest-cli curl wget bash
+RUN pwd && ls -la $pwd && ls -la /app
 RUN curl -LJOR https://tinkerbell-oss.s3.amazonaws.com/osie-uploads/latest.tar.gz -o /latest-org.tar.gz
 RUN grep -E "model name|bogomips" /proc/cpuinfo | sort -u
 RUN grep processor /proc/cpuinfo | wc -l
